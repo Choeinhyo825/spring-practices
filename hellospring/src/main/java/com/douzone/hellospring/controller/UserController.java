@@ -23,9 +23,9 @@ public class UserController {
 		return "/WEB-INF/views/join.jsp";
 	}
 
-	@GetMapping(value = "/join")
-	public String join(UserVo userVo) { // 파라미터를 자동으로 vo에 넣어줌 갸꿀 ;)
-		System.out.println("userVo : " + userVo);
+	@RequestMapping(value="/join", method=RequestMethod.POST)
+	public String join(UserVo userVo) {
+		System.out.println(userVo);
 		return "redirect:/";
 	}
 
