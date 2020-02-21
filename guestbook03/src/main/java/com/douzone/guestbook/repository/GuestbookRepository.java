@@ -48,7 +48,7 @@ public class GuestbookRepository {
 		return result;
 	}
 
-	public Boolean delete(GuestbookVo vo) {
+	public Boolean delete(long no , String pass) {
 		Boolean result = false;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -59,8 +59,8 @@ public class GuestbookRepository {
 			String sql = "delete from guestbook where no=? and pass=?";
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setLong(1, vo.getNo());
-			pstmt.setString(2, vo.getPass());
+			pstmt.setLong(1, no);
+			pstmt.setString(2, pass);
 
 			int count = pstmt.executeUpdate();
 
