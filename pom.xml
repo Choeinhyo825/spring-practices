@@ -10,5 +10,7 @@
 	
 	<modules>
 		<module>hellospring</module>
+		<module>emillist03</module>
+		<module>emaillist03</module>
 	</modules>
 </project>
