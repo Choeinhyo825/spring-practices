@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.douzone.guestbook.repository.GuestbookRepository;
 import com.douzone.guestbook.vo.GuestbookVo;
@@ -24,22 +25,22 @@ public class GuestbookController {
 		model.addAttribute("list", list);
 		return "index";
 	}
-	
-	@RequestMapping(value = "/add",method = RequestMethod.POST)
+
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String add(GuestbookVo vo) {
 		guestbookRepository.insert(vo);
 		return "redirect:/";
 	}
-	
-	@RequestMapping(value = "/delete/{no}",method = RequestMethod.GET)
+
+	@RequestMapping(value = "/delete/{no}", method = RequestMethod.GET)
 	public String delete(Model model, @PathVariable("no") Long no) {
-		model.addAttribute("no",no);
+		model.addAttribute("no", no);
 		return "deleteform";
 	}
-	
-	@RequestMapping(value = "/delete",method = RequestMethod.POST)
-	public String delete(GuestbookVo vo) {
-		guestbookRepository.delete(vo);
+
+	@RequestMapping(value = "/delete/{no}", method = RequestMethod.POST)
+	public String delete(@PathVariable("no") Long no, @RequestParam String pass) {
+		guestbookRepository.delete(no, pass);
 		return "redirect:/";
 	}
 
