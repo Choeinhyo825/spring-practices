@@ -22,8 +22,7 @@
 				<td><input type="password" name="pass" required="required"></td>
 			</tr>
 			<tr>
-				<td colspan=4><textarea name="contents" cols=60 rows=5
-						required="required"></textarea></td>
+				<td colspan=4><textarea name="contents" cols=60 rows=5 required="required"></textarea></td>
 			</tr>
 			<tr>
 				<td colspan=4 align=right><input type="submit" VALUE=" 확인 "></td>
@@ -31,12 +30,14 @@
 		</table>
 	</form>
 	<br>
-	<c:set var="countNum" value="${fn:length(list)} " />
 	
+	<c:set var="countNum" value="${fn:length(list)} " />
+	<fmt:parseNumber var="listCount" type="number" value="${countNum}" />
+
 	<c:forEach items="${list }" var="vo" varStatus="status">
 		<table width=510 border=1>
 			<tr>
-				<td>${countNum}</td>
+				<td>${listCount-status.index}</td>
 				<td>${vo.name}</td>
 				<td>${vo.regDate}</td>
 				<td><a href="${pageContext.request.contextPath }/delete/${vo.no}">삭제</a></td>
