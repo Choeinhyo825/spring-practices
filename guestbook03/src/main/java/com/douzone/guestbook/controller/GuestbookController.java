@@ -39,7 +39,8 @@ public class GuestbookController {
 	}
 
 	@RequestMapping(value = "/delete/{no}", method = RequestMethod.POST)
-	public String delete(@PathVariable("no") Long no, @RequestParam String pass) {
+	public String delete(@PathVariable("no") Long no,
+			@RequestParam(value = "pass", required = true, defaultValue = "") String pass) {
 		guestbookRepository.delete(no, pass);
 		return "redirect:/";
 	}

@@ -33,9 +33,8 @@
 	
 	<c:set var="countNum" value="${fn:length(list)} " />
 	<fmt:parseNumber var="listCount" type="number" value="${countNum}" />
-
-	<c:forEach items="${list }" var="vo" varStatus="status">
-		<table width=510 border=1>
+	<table width=510 border=1>
+		<c:forEach items="${list }" var="vo" varStatus="status">
 			<tr>
 				<td>${listCount-status.index}</td>
 				<td>${vo.name}</td>
@@ -45,7 +44,7 @@
 			<tr>
 				<td colspan=4>${fn:replace(vo.contents, newLine, "<br>")}</td>
 			</tr>
-		</table>
-	</c:forEach>
+		</c:forEach>
+	</table>
 </body>
 </html>
