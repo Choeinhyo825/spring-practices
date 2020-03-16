@@ -36,6 +36,6 @@
 	</bean>
 	
 	<!-- mvc resources -->
-	<mvc:resources location="/images/**" mapping="file:/mysite-uploads/"/>
+	<mvc:resources location="file:/mysite-uploads/" mapping="/images/**" />
 
 </beans>
