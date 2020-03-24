@@ -37,7 +37,31 @@ public class DVDPlayerXmlConfigTest {
 	@Autowired
 	@Qualifier("avengersAgeOfUltron")
 	private DigitalVideoDisc dvd5;
-
+	
+	@Autowired
+	@Qualifier("captainAmerica")
+	private DigitalVideoDisc dvd6;
+	
+	@Autowired
+	@Qualifier("avergersDirectorEdition")
+	private DigitalVideoDisc dvd7;
+	
+	@Autowired
+	@Qualifier("avengersExpansionPack1")
+	private DigitalVideoDisc dvd8;
+	
+	@Autowired
+	@Qualifier("avengersExpansionPack2")
+	private DigitalVideoDisc dvd9;
+	
+	@Autowired
+	@Qualifier("avengersExpansionPack3")
+	private DigitalVideoDisc dvd10;
+	
+	@Autowired
+	@Qualifier("avengersTriplepack")
+	private DVDPack dvdPack;
+	
 	@Autowired
 	@Qualifier("dvdPlayer2")
 	private DVDPlayer player2;
@@ -49,40 +73,97 @@ public class DVDPlayerXmlConfigTest {
 	@Autowired
 	@Qualifier("dvdPlayer4")
 	private DVDPlayer player4;
+	
+	@Autowired
+	@Qualifier("dvdPlayer5")
+	private DVDPlayer player5;
+	
+	@Autowired
+	@Qualifier("dvdPlayer6")
+	private DVDPlayer player6;
+
 
 	@Test
-	public void testDVD2NotNull() {
+	public void testDVD2() {
 		assertNotNull(dvd2);
 	}
 	@Test
-	public void testDVD3NotNull() {
+	public void testDVD3() {
 		assertNotNull(dvd3);
 	}
 	@Test
-	public void testDVD4NotNull() {
+	public void testDVD4() {
 		assertNotNull(dvd4);
 	}
 	@Test
-	public void testDVD5NotNull() {
+	public void testDVD5() {
 		assertNotNull(dvd5);
+	}
+	@Test
+	public void testDVD6() {
+		assertNotNull(dvd6);
+		System.out.println(dvd6);
+		assertEquals("BlankDisc [title=Avengers Captain America, studio=MARVEL, actors=null]", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+	}
+	@Test
+	public void testDVD7() {
+		assertNotNull(dvd7);
+		System.out.println(dvd7);
+		assertEquals("BlankDisc [title=Avengers Director's Editor, studio=MARVEL, actors=[Rovert Downet Jr., Scarlett, Chris Evans]]", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+	}
+	
+	@Test
+	public void testDVD8() {
+		assertNotNull(dvd8);
+		System.out.println(dvd8);
+	}
+	
+	@Test
+	public void testDVD9() {
+		assertNotNull(dvd9);
+		System.out.println(dvd9);
+	}
+	
+	@Test
+	public void testDVD10() {
+		assertNotNull(dvd10);
+		System.out.println(dvd10);
+	}
+	
+	@Test
+	public void testDVDPack() {
+		assertNotNull(dvdPack);
+		System.out.println(dvdPack);
 	}
 
 	@Test
-	public void testPaly2() {
+	public void testPlay2() {
 		player2.play();
 		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
 	}
 
 	@Test
-	public void testPaly3() {
+	public void testPlay3() {
 		player3.play();
 		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
 	}
 
 	@Test
-	public void testPaly4() {
+	public void testPlay4() {
 		player4.play();
 		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+	}
+	
+	@Test
+	public void testPlay5() {
+		player5.play();
+		assertEquals("Playing Movie MARVEL's Avengers Director's Editor", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+	}
+
+	@Test
+	public void testPlay6() {
+		player6.play();
+		assertEquals("Playing Movie MARVEL's Avengers Captain America", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
 	}
 
 }
