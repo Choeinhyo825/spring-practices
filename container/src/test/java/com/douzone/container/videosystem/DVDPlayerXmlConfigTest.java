@@ -1,5 +1,6 @@
 package com.douzone.container.videosystem;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Rule;
@@ -7,6 +8,7 @@ import org.junit.Test;
 import org.junit.contrib.java.lang.system.SystemOutRule;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -15,15 +17,72 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class DVDPlayerXmlConfigTest {
 	@Rule
 	public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
+
+	// @Autowired
+	// 예외 발생 : XML Bean 설정 시 id는 자동 부여 되지 않는다.
+	private DigitalVideoDisc dvd1;
+
+	@Autowired
+	@Qualifier("ironMan")
+	private DigitalVideoDisc dvd2;
 	
 	@Autowired
-	private DigitalVideoDisc dvd;
+	@Qualifier("avengersInfinityWar")
+	private DigitalVideoDisc dvd3;
 	
+	@Autowired
+	@Qualifier("avengersEndGame")
+	private DigitalVideoDisc dvd4;
+	
+	@Autowired
+	@Qualifier("avengersAgeOfUltron")
+	private DigitalVideoDisc dvd5;
+
+	@Autowired
+	@Qualifier("dvdPlayer2")
+	private DVDPlayer player2;
+
+	@Autowired
+	@Qualifier("dvdPlayer3")
+	private DVDPlayer player3;
+
+	@Autowired
+	@Qualifier("dvdPlayer4")
+	private DVDPlayer player4;
+
 	@Test
-	public void testDVDNotNull() {
-		assertNotNull(dvd);
+	public void testDVD2NotNull() {
+		assertNotNull(dvd2);
 	}
-	
-	
-	
+	@Test
+	public void testDVD3NotNull() {
+		assertNotNull(dvd3);
+	}
+	@Test
+	public void testDVD4NotNull() {
+		assertNotNull(dvd4);
+	}
+	@Test
+	public void testDVD5NotNull() {
+		assertNotNull(dvd5);
+	}
+
+	@Test
+	public void testPaly2() {
+		player2.play();
+		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+	}
+
+	@Test
+	public void testPaly3() {
+		player3.play();
+		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+	}
+
+	@Test
+	public void testPaly4() {
+		player4.play();
+		assertEquals("Playing Movie MARVEL's IronMan", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
+	}
+
 }
