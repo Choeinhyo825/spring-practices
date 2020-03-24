@@ -106,27 +106,27 @@
 			p:studio = "MARVEL"
 			p:actors-ref= "actorList"/>
 
-	<!-- 09. 생성자를 통한 빈 주입 1 -->
+	<!-- 12. 생성자를 통한 빈 주입 1 -->
 	<bean id="dvdPlayer2" class="com.douzone.container.videosystem.DVDPlayer">
 		<constructor-arg ref="ironMan"/>
 	</bean>
 	
-	<!-- 10. 생성자를 통한 빈 주입 2 -->
+	<!-- 13. 생성자를 통한 빈 주입 2 -->
 	<!-- c-namespace의 argument name을 사용하는 방법(spring3.* 부터 지원) -->
 	<bean id="dvdPlayer3" class="com.douzone.container.videosystem.DVDPlayer" 
 			c:dvd-ref="ironMan"/>
 	
-	<!-- 11. 생성자를 통한 빈 주입 3 -->
+	<!-- 14. 생성자를 통한 빈 주입 3 -->
 	<!-- c-namespace의 argument index를 사용하는 방법(spring3.* 부터 지원) -->
 	<bean id="dvdPlayer4" class="com.douzone.container.videosystem.DVDPlayer" 
 			c:_0-ref="ironMan"/>
 			
-	<!-- 12. 프로퍼티를 통한 빈 주입 1 -->
+	<!-- 15. 프로퍼티를 통한 빈 주입 1 -->
 	<bean id="dvdPlayer5" class="com.douzone.container.videosystem.DVDPlayer">
 		<property name="dvd" ref="avergersDirectorEdition"/>
 	</bean>
 	
-	<!-- 13. 프로퍼티를 통한 빈 주입 2 - p:namespace 사용 -->
+	<!-- 16. 프로퍼티를 통한 빈 주입 2 - p:namespace 사용 -->
 	<bean id="dvdPlayer6" class="com.douzone.container.videosystem.DVDPlayer"
 			p:dvd-ref="captainAmerica"/>
 
