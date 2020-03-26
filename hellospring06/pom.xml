@@ -41,6 +41,18 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- spring boot devtools: live reload -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+		<!-- jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+
 		<!-- tomcat jasper -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
@@ -58,7 +70,7 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>		
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -68,5 +80,5 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-	</build>		
+	</build>
 </project> 
